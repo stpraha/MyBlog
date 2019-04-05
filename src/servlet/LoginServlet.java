@@ -38,9 +38,9 @@ public class LoginServlet extends HttpServlet {
 		
 		LoginUtils.login(request);
 		
+		User user = null;
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-		
+		user = (User) session.getAttribute("user");
 		
 		if(user == null) {
 			request.getRequestDispatcher("welcome.html").forward(request, response);

@@ -89,6 +89,7 @@ outline: 0;
 		
 		<script>
 			function publish(){
+				var write_text = UE.getEditor("container-conn").getContent();
 				$.ajax({
 					type:"post",
 					url:"../servletWrite",
@@ -96,7 +97,9 @@ outline: 0;
 					data:
 					{
 						"write_title":$("#title-con").val(),
-						"write_content":$("#container-conn").val()
+						"write_content":write_text,
+						"write_author":"Stpraha",
+						"write_sort":"哪有什么分类",
 					},
 					success:function(callBack)
 					{
@@ -115,7 +118,7 @@ outline: 0;
 					data:
 					{
 						"write_title":$("#title").val(),
-						"write_content":$("#container").val()
+						"write_content":$("#container").val(),
 					},
 					success:function(callBack)
 					{

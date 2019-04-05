@@ -90,12 +90,13 @@ outline: 0;
 	
 		<div id="content-box" style="background:white; ">
 		<br/>
-			<div id="content-con">
+			<div id="content-con">${article.content}
+			<!-- 
 	  			<script>
 	  				var article_content = "${article.content}";
 	    			document.getElementById('content-con').innerHTML = marked(article_content);
 	 			</script>
-			
+			 -->
 				  	<!-- 
 				<div id="a_content">
 					<h4>${article.content}</h4>
