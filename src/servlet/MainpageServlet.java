@@ -40,8 +40,13 @@ public class MainpageServlet extends HttpServlet{
 		
 		//System.out.println(user.getNickName() + "qwerqwer");
 		
-		request.setAttribute("article_list", articleService.getArticleList());
+		List<Article> articleList = articleService.getArticleList();
+		for(Article a : articleList) {
+			a.setContent(" ");
+		}
 					
+		request.setAttribute("article_list", articleList);
+		
 		request.getRequestDispatcher("/page/mainPage.jsp").forward(request, response);
 	}
 	

@@ -49,6 +49,16 @@ public class ArticleDaoImpl implements ArticleDao{
 			e.printStackTrace();
 		}
 	}
+	
+	public void addStar(int articleId) {
+		String sql = "update t_article set star = star+1 where id =" + articleId;
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public Article getANearArticle(String time, int lessOrMore) {
@@ -392,7 +402,7 @@ public class ArticleDaoImpl implements ArticleDao{
 		}
 		
 		if(article == null) {
-			article = new Article(999, "²©¿Í±»³ÔµôÀ²£¡", "NoBody", "»¹ÄÄÓÐ·ÖÀà°¡", "1970-01-01 00:00:00", 9, 9, 9, "ÄãÀ´µ½ÁËÃ»ÓÐ²©¿ÍµÄ»ÄÔ­£¬ÇëÁªÏµ¹ÜÀíÔ±£¬ÇëÄãºÈÄÌ²è£¡");
+			article = new Article(999, "ï¿½ï¿½ï¿½Í±ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½", "NoBody", "ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½à°¡", "1970-01-01 00:00:00", 9, 9, 9, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð²ï¿½ï¿½ÍµÄ»ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì²è£¡");
 		}
 		return article;
 	}

@@ -36,42 +36,51 @@ public class ArticleServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setHeader("Content-type", "text/jsp; charset=UTF-8");
-		
+			
 		try {
 			String message = request.getParameter("message");
 			if(message.equals("star")) {
-				String id = request.getParameter("article_id");
+				String iid = request.getParameter("article_id");
 				
-				
+				ArticleService as = ArticleService.getInstance();
+				as.addStar(iid);
+								
 				System.out.println("有人点赞了！");
-				System.out.println(id);
+				System.out.println(iid);
 			}
 			else if(message.equals("comment")) {
-				
-				String id = request.getParameter("article_id");
+				String iid = request.getParameter("article_id");
 				String comment = request.getParameter("comment_content");
 				String commenderNickname = request.getParameter("commender_nickname");
 				String commenderEmail = request.getParameter("commender_email");
 				
+				//String commentContent = 
+				//设置一个专门放comment的表。然后用comment的id的方式链接到article表
+				//ArticleService as = ArticleService.getInstance();
+				//as.addComment(iid, commentContent);
+				
 				System.out.println("有人评论了！");
-				System.out.println(id);
+				System.out.println(iid);
 				System.out.println(comment);
 				System.out.println(commenderNickname);
 				System.out.println(commenderEmail);
 			}
 		}catch (Exception e) {
 			//do nothing
+			String id = request.getParameter("id");
+			
+			ArticleService articleService = ArticleService.getInstance();
+			
+			articleService.addVisit(id);
+			
+			Article article = articleService.getSingleArticle("id", id);
+			
+			request.setAttribute("article", article);
+			
+			request.getRequestDispatcher("/page/articlePage.jsp").forward(request, response);
 		}
 		
-		String id = request.getParameter("id");
-		
-		ArticleService articleService = ArticleService.getInstance();
-		
-		Article article = articleService.getSingleArticle("id", id);
-		
-		request.setAttribute("article", article);
-		
-		request.getRequestDispatcher("/page/articlePage.jsp").forward(request, response);
+
 	}
 
 	/**

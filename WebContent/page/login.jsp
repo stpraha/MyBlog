@@ -53,6 +53,11 @@ outline: 0;
 
 <body style="background:url(pic/background.jpg);">
 
+	<div > 
+		<h1>只有管理员才能写文章！</h1>
+		<h1>点击Login返回！</h1>
+	</div>
+
 	<div id="page_container">
 		<form action="../LoginServlet" method="post" name="loginform">
 		<div class="username_input_block">

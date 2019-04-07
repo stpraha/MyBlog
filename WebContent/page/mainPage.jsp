@@ -44,24 +44,24 @@
 				<div id="list">
 					<table class="table table-hover c_center">
 						<tr>
-							<td><a href="/MyBlog/index.jsp"><span class="glyphicon glyphicon-home"></span>
-								&nbsp;&nbsp;还</a></td>
+							<td><a href="welcome.html"><span class="glyphicon glyphicon-home"></span>
+								&nbsp;&nbsp;首页</a></td>
 						</tr>
 						<tr>	
-							<td><a href="/MyBlog/index.jsp"><span class="glyphicon glyphicon-list"></span>
-								&nbsp;&nbsp;没</a></td>
+							<td><a href="welcome.html"><span class="glyphicon glyphicon-list"></span>
+								&nbsp;&nbsp;评论总览</a></td>
 						</tr>
 						<tr>
 							<td><a href="/MyBlog/page/login.jsp"><span class="glyphicon glyphicon-tags"></span>
 								&nbsp;&nbsp;写文章</a></td>
 						</tr>						
 						<tr>
-							<td><a href="/MyBlog/index.jsp"><span class="glyphicon glyphicon-book"></span>
-								&nbsp;&nbsp;好</a></td>
+							<td><a href="welcome.html"><span class="glyphicon glyphicon-book"></span>
+								&nbsp;&nbsp;访问数据</a></td>
 						</tr>
 						<tr>
-							<td><a href="/MyBlog/index.jsp"><span class="glyphicon glyphicon-user"></span>
-								&nbsp;&nbsp;呢</a></td>
+							<td><a href="welcome.html"><span class="glyphicon glyphicon-user"></span>
+								&nbsp;&nbsp;关于作者</a></td>
 						</tr>
 					</table>
 				</div>
@@ -85,18 +85,6 @@
 					<div  class="list-group-item">		
 					<h5><a href="ArticleServlet?id=${article.id}">${article.title}</a></h5>
 					
-					
-					<!--
-					<span>${article.time}&nbsp;&nbsp;|</span>
-					<a href="/MyBlog/SortServlet?get=${article.sort}">${article.sort}</a>&nbsp;&nbsp;|
-					<span>阅读次数: ${article.visit}</span>
-					<br/><br/>					
-					<span>${article.content}</span>
-					
-					<br/>
-					<a href="/Blog/ArticleServlet?id=${article.id}">阅读全文</a>
-					<br/>			
-					-->
 					
 					</div>
 					</c:forEach>

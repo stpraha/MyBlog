@@ -40,6 +40,7 @@ public class ArticleService {
 		return dao.getANearArticle(time, dao.LESS);
 	}
 	
+	
 	public Article getNextArticle(String time) {
 		return dao.getANearArticle(time, dao.MORE);
 	}
@@ -67,7 +68,7 @@ public class ArticleService {
 			result.add(tmp);
 			result.add(axisList.get(0));
 		}
-		// ÅÐ¶ÏÎÄÕÂÄê·ÝÊÇ²»ÊÇ²»Ò»Ñù ²»Ò»ÑùÔòÈûÒ»¸öyear
+		// ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½Ç²ï¿½Ò»ï¿½ï¿½ ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½year
 		for (int i = 1; i < axisList.size(); i++) {
 			int present_year = axisList.get(i).getYear();
 			int past_year = axisList.get(i - 1).getYear();
@@ -80,7 +81,7 @@ public class ArticleService {
 			}
 			result.add(axisList.get(i));
 		}
-		// ×¢Òâ: ÔÚlist±éÀúÀïÃæ¶¯Ì¬ÐÞ¸ÄÁËÊý×é³¤¶È»á³öÏÖÄÚ´æÒç³öµÄÇé¿ö
+		// ×¢ï¿½ï¿½: ï¿½ï¿½listï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¶¯Ì¬ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é³¤ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		return result;
 	}
 	
@@ -89,18 +90,18 @@ public class ArticleService {
 	}
 
 	/**
-	 * »ñÈ¡·ÖÀà¼°¸Ã·ÖÀàµÄÎÄÕÂÊýÁ¿
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½à¼°ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @return
 	 */
 	public Map getSortAndCount() {
 		// TO DO
-		// ÐèÒªÖØÐ´Õâ¸ö·½·¨
+		// ï¿½ï¿½Òªï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		return dao.getColumAndCount(dao.SEARCH_SORT);
 	}
 
 	/**
-	 * »ñÈ¡ ËùÓÐÎÄÕÂ ½ØÈ¡ÎÄÕÂ³¤¶È ½ØÈ¡Ò»ÏÂÊ±¼ä È¥µôÊ± ·ÖÖÓ Ãë
+	 * ï¿½ï¿½È¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¡ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½ ï¿½ï¿½È¡Ò»ï¿½ï¿½Ê±ï¿½ï¿½ È¥ï¿½ï¿½Ê± ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	 * 
 	 * @return
 	 */
@@ -118,6 +119,7 @@ public class ArticleService {
 		return list;
 	}
 	
+	
 	public Article getSingleArticle(String column, String id) {
 		Article article = dao.getSingleArticle(column, id);
 		return article;
@@ -125,7 +127,7 @@ public class ArticleService {
 	
 
 	/**
-	 * »ñÈ¡·ÖÀàºÍËüµÄÎÄÕÂ
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @return
 	 */
@@ -134,7 +136,7 @@ public class ArticleService {
 		Map map = new HashMap();
 		List<Article> articleBySort = null;
 
-		// »ñÈ¡ËùÓÐ·ÖÀà
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½
 		if (sort_name.equals("all") || StringUtils.isEmpty(sort_name)) {
 			List<String> sorts = dao.getAllSort();
 
@@ -145,7 +147,7 @@ public class ArticleService {
 				map.put(sort, articleBySort);
 			}
 		} else {
-			// »ñÈ¡µ¥¸ö·ÖÀà
+			// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			articleBySort = dao.getArticleByColumn("sort", sort_name);
 			ArticleUtils.cutTime(articleBySort);
 			map.put(sort_name, articleBySort);
@@ -177,12 +179,15 @@ public class ArticleService {
 		return dao.getAllSort();
 	}
 
-	public int starArticle(int id) {
-		return dao.starArticle(id);
-	}
 
-	public void addVisit(int article_id) {
-		dao.addVisit(article_id);
+	public void addVisit(String articleId) {
+		int id = Integer.parseInt(articleId);
+		dao.addVisit(id);
+	}
+	
+	public void addStar(String articleId) {
+		int id = Integer.parseInt(articleId);
+		dao.addStar(id);
 	}
 }
 

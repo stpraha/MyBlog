@@ -17,6 +17,7 @@ public interface ArticleDao {
 	 */
 	void addVisit(int articleId);
 	
+	void addStar(int articleId);
 	
 	/*
 	 * get previous article / next article
@@ -29,7 +30,7 @@ public interface ArticleDao {
 	Map getColumAndCount(String searchColumn);
 	
 	/*
-	 * get all Àà±ð
+	 * get all ï¿½ï¿½ï¿½
 	 */
 	List getAllSort();
 	
