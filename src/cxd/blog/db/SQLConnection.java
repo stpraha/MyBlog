@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 
 public class SQLConnection {
 	private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/myblog?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT";
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/myblog?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&autoReconnect=true";
 	
 	private static final String USER = "root";
 	private static final String PASS_WORD = "a13757407965b";
@@ -35,7 +35,7 @@ public class SQLConnection {
 				conn = DriverManager.getConnection(DB_URL, USER, PASS_WORD);
 			} catch(Exception e) {
 				e.printStackTrace();
-				System.out.println("»ñÈ¡Êý¾Ý¿âÁ¬½Ó³ö´í");
+				System.out.println("ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½");
 			}
 		}
 		return conn;

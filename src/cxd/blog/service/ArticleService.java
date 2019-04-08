@@ -168,13 +168,12 @@ public class ArticleService {
 			if (a.getTitle().length() > 20) {
 				a.setTitle(StringUtils.cutString(a.getTitle(), 0, 19) + "...");
 			}
-
 		}
 
 		return list;
-
 	}
 
+	
 	public List getAllSort() {
 		return dao.getAllSort();
 	}

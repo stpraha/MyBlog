@@ -48,7 +48,7 @@
 								&nbsp;&nbsp;首页</a></td>
 						</tr>
 						<tr>	
-							<td><a href="welcome.html"><span class="glyphicon glyphicon-list"></span>
+							<td><a href="servletCommentpage"><span class="glyphicon glyphicon-list"></span>
 								&nbsp;&nbsp;评论总览</a></td>
 						</tr>
 						<tr>

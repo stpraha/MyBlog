@@ -59,7 +59,7 @@ outline: 0;
 	</div>
 
 	<div id="page_container">
-		<form action="../LoginServlet" method="post" name="loginform">
+		<form action="../servletLogin" method="post" name="loginform">
 		<div class="username_input_block">
 			<input type="text" name="username" placeholder="Username"/>
 		</div>

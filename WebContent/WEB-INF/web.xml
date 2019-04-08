@@ -4,6 +4,7 @@
   <welcome-file-list>
     <welcome-file>welcome.html</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <servlet-name>servletMainpage</servlet-name>
     <servlet-class>servlet.MainpageServlet</servlet-class>
@@ -12,6 +13,7 @@
     <servlet-name>servletMainpage</servlet-name>
     <url-pattern>/servletMainpage</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>servletArticle</servlet-name>
     <servlet-class>servlet.ArticleServlet</servlet-class>
@@ -20,6 +22,7 @@
     <servlet-name>servletArticle</servlet-name>
     <url-pattern>/servletArticle</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>servletWelcome</servlet-name>
     <servlet-class>servlet.WelcomeServlet</servlet-class>
@@ -28,6 +31,7 @@
     <servlet-name>servletWelcome</servlet-name>
     <url-pattern>/servletWelcome</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>servletLogin</servlet-name>
     <servlet-class>servlet.LoginServlet</servlet-class>
@@ -36,6 +40,7 @@
     <servlet-name>servletLogin</servlet-name>
     <url-pattern>/servletLogin</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>servletWrite</servlet-name>
     <servlet-class>servlet.WriteServlet</servlet-class>
@@ -43,5 +48,23 @@
   <servlet-mapping>
     <servlet-name>servletWrite</servlet-name>
     <url-pattern>/servletWrite</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>servletComment</servlet-name>
+    <servlet-class>servlet.CommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletComment</servlet-name>
+    <url-pattern>/servletComment</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>servletCommentpage</servlet-name>
+    <servlet-class>servlet.CommentpageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletCommentpage</servlet-name>
+    <url-pattern>/servletCommentpage</url-pattern>
   </servlet-mapping>
 </web-app>

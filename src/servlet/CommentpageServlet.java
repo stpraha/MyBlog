@@ -13,19 +13,18 @@ import cxd.blog.model.Article;
 import cxd.blog.model.Comment;
 import cxd.blog.service.ArticleService;
 import cxd.blog.service.CommentService;
-import cxd.blog.utils.LoginUtils;
 
 /**
- * Servlet implementation class ArticleServlet
+ * Servlet implementation class AllCommentSerlvet
  */
-@WebServlet("/ArticleServlet")
-public class ArticleServlet extends HttpServlet {
+@WebServlet("/CpageSerlvet")
+public class CommentpageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ArticleServlet() {
+    public CommentpageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,29 +34,20 @@ public class ArticleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served atasdfasd: ").append(request.getContextPath());
-		//response.getWriter().append("Served atasdf: ").append(request.getContextPath()).append("  " + id);
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setHeader("Content-type", "text/jsp; charset=UTF-8");
-			
-		//do nothing
-		String id = request.getParameter("id");
-			
-		ArticleService articleService = ArticleService.getInstance();
-		articleService.addVisit(id);
-		Article article = articleService.getSingleArticle("id", id);
-		
+				
 		CommentService commentService = CommentService.getInstance();
-		List<Comment> commentList = commentService.getArticleComment(id);
-		for(Comment c: commentList) {
-			System.out.println(c.getCommenderNickName());
-		}
-			
-		request.setAttribute("article", article);
+		
+		//System.out.println(user.getNickName() + "qwerqwer");
+		
+		List<Comment> commentList = commentService.getAllComment();
+
+					
 		request.setAttribute("comment_list", commentList);
-			
-		request.getRequestDispatcher("/page/articlePage.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("/page/commentPage.jsp").forward(request, response);
 	}
 
 	/**
@@ -68,13 +58,4 @@ public class ArticleServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-	
 }
-
-
-
-
-
-
-
-

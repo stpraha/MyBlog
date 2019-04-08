@@ -57,7 +57,7 @@ outline: 0;
 		<div class="head">
 			<div id="title">
 				<h3>
-					<a href="MainpageServlet">返回首页 | Stpraha</a>
+					<a href="servletMainpage">返回首页 | Stpraha</a>
 				</h3>
 			</div>
 		</div>
@@ -107,6 +107,22 @@ outline: 0;
 		</div>
 		<br/>
 		
+		<!-- 加载文章评论 -->
+		<div class="comment"> <h3>评论列表：</h3>
+			<c:forEach var="comm" varStatus="status" items="${comment_list}">			
+				<div class="f_div">		
+					<span>${comm.commenderNickName}</span>					
+					<span>&nbsp;&nbsp;于&nbsp;${comm.commentTime}</span>
+					<span>&nbsp;&nbsp;说道：</span>
+				</div>		
+				
+				<div  id="c_content" class="c_left">						
+				<pre>${comm.commentContent} </pre>			
+				</div>					
+				<div class="line"></div>
+			</c:forEach>	
+		</div>
+		
 		<div class="line"></div>
 			<!-- 写评论 -->
 			<div id="comment">
@@ -128,7 +144,7 @@ outline: 0;
 						var a_id = "${article.id}";
 						$.ajax({
 							type:"post",
-							url:"servletArticle",
+							url:"servletComment",
 							datatype:"text",
 							data:
 							{
@@ -145,14 +161,17 @@ outline: 0;
 				<script>
 					function comment(){
 						var a_id = "${article.id}";
+						var a_title = "${article.title}";
+						
 						$.ajax({
 							type:"post",
-							url:"servletArticle",
+							url:"servletComment",
 							datatype:"text",
 							data:
 							{
 								"message":"comment",
 								"article_id":a_id,
+								"article_title":a_title,
 								"comment_content":$("#comment_input").val(),
 								"commender_nickname":$("#commender_nickname").val(),
 								"commender_email":$("#commender_email").val(),
@@ -181,7 +200,6 @@ outline: 0;
 		<br/>
 		<br/>
  	
-		</div>
 	
 		
 	
